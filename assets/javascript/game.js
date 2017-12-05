@@ -14,18 +14,18 @@
 //The random number shown at the start of the game should be between 19 and 120
 //Each crystal should have a random hidden value between 1 and 12
 
-var random_result;
+var random_number_generator;
 var lost = 0;
 var win = 0;
 var previous = 0;
 
 var resetAndStart = function() {
 
-	$(".crystals").empty();
+	$(".containers").empty();
 
-	random_result = Math.floor(Math.random() * 101 ) + 19;
+	random_number_generator = Math.floor(Math.random() * 101 ) + 19;
 
-	$("#result").html('Random Result: ' + random_result);
+	$("#total").html('Random Number Generator: ' + random_number_generator);
 
 	for(var i = 0; i < 4; i++){
 
@@ -38,11 +38,11 @@ var resetAndStart = function() {
 				"data-random": random
 			});
 
-		$(".crystals").append(crystal);
+		$(".containers").append(crystal);
 
 	}
 
-	$("#previous").html("Current Value: " + previous);
+	$("#previous").html("Point Total: " + previous);
 
 }
 
@@ -58,11 +58,10 @@ $(document).on('click', ".crystal", function () {
 
 	previous += num;
 
-	$("#previous").html("Current Value: " + previous);
+	$("#previous").html("Point Total: " + previous);
 
-	console.log(previous);
 
-	if(previous > random_result){
+	if(previous > random_number_generator){
 		lost++;
 		alert("Try Again!");
 		$("#lost").html("Number of Losses: " + lost);
@@ -72,10 +71,10 @@ $(document).on('click', ".crystal", function () {
 		resetAndStart();
 	}
 
-	else if(previous === random_result){
+	else if(previous === random_number_generator){
 		win++;
 		alert("Success!");
-		$("#win").html("Number of Wins: " + win);
+		$("#won").html("Number of Wins: " + win);
 
 		previous = 0;
 

@@ -2,10 +2,22 @@ body {
 	background-color: lightblue;
 }
 
-.crystals{
+.total{
+	text-align: center;
+}
+
+.won{
+	text-align: center;
+}
+
+.lost{
+	text-align: center;
+}
+
+.containers{
 	display: flex;
 	justify-content: space-around;
-	align-items: vertical;
+	align-items: horizontal;
 }
 
 .crystal{
@@ -14,3 +26,4 @@ body {
 	width:200px;
 	background: purple;
 }
+
